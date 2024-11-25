@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiniMercado</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <!-- CSS Personalizado -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Cabeçalho -->
+  <header class="bg-primary text-white text-center p-3">
+    <h1>MiniMercado</h1>
+    <p>Seu mercado de confiança!</p>
+  </header>
+
+  <!-- Carrossel -->
+  <div id="carouselExample" class="carousel slide mt-3" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="frutas.png" class="d-block w-100 img-fluid" alt="Oferta 1: Frutas frescas em promoção">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Promoção de Frutas</h5>
+          <p>Aproveite nossas frutas fresquinhas com descontos especiais!</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="carnes.png" class="d-block w-100 img-fluid" alt="Oferta 2: Carnes com desconto">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Promoção de Carnes</h5>
+          <p>Ofertas imperdíveis em cortes selecionados de carne.</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Próximo</span>
+    </button>
+  </div>
+
+  <!-- Formulário de Cadastro -->
+  <section class="container mt-5">
+    <h2>Cadastro de Cliente</h2>
+    <form id="formCadastro">
+      <div class="mb-3">
+        <label for="nome" class="form-label">Nome Completo</label>
+        <input type="text" class="form-control" id="nome" placeholder="Digite seu nome" required>
+      </div>
+      <div class="mb-3">
+        <label for="cpf" class="form-label">CPF</label>
+        <input type="text" class="form-control" id="cpf" placeholder="Digite seu CPF" required>
+      </div>
+      <div class="mb-3">
+        <label for="endereco" class="form-label">Endereço</label>
+        <input type="text" class="form-control" id="endereco" placeholder="Digite seu endereço" required>
+      </div>
+      <div class="mb-3">
+        <label for="telefone" class="form-label">Telefone</label>
+        <input type="tel" class="form-control" id="telefone" placeholder="Digite seu telefone" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">E-mail</label>
+        <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Sexo</label><br>
+        <input type="radio" name="sexo" value="Masculino" required> Masculino
+        <input type="radio" name="sexo" value="Feminino" required> Feminino
+      </div>
+      <div class="mb-3">
+        <label for="servico" class="form-label">Escolha o serviço</label><br>
+        <input type="radio" name="servico" value="Retirada" required> Retirada no local
+        <input type="radio" name="servico" value="Entrega" required> Tele-entrega
+      </div>
+      <div class="mb-3">
+        <label for="dataAgendamento" class="form-label">Data de Agendamento</label>
+        <input type="date" class="form-control" id="dataAgendamento" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+    <!-- Espaço para mensagem de confirmação -->
+    <div id="mensagem" class="mt-3"></div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Garantir que o script funcione ao submeter o formulário
+    document.getElementById("formCadastro").addEventListener("submit", function(event) {
+      event.preventDefault(); // Previne o envio real do formulário
+      const mensagemDiv = document.getElementById("mensagem");
+      // Criar a mensagem de sucesso
+      mensagemDiv.innerHTML = `
+        <div class="alert alert-success" role="alert">
+          Cadastro realizado com sucesso! Obrigado por se cadastrar.
+        </div>
+      `;
+      // Opcional: Limpar os campos do formulário
+      document.getElementById("formCadastro").reset();
+    });
+  </script>
+</body>
+</html>
